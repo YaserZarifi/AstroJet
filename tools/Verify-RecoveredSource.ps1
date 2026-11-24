@@ -2,9 +2,10 @@ param([string]$GameDirectory = (Resolve-Path "$PSScriptRoot\..\..").Path, [switc
 $ErrorActionPreference = 'Stop'
 Add-Type -Path "$PSHOME\Microsoft.CodeAnalysis.dll"
 Add-Type -Path "$PSHOME\Microsoft.CodeAnalysis.CSharp.dll"
-$sourceRoot = Join-Path $GameDirectory 'AndroidPort\recovered\JnG2'
-if ($PortSource) { $sourceRoot = Join-Path $GameDirectory 'AndroidPort\src\Game' }
-$outputRoot = Join-Path $GameDirectory 'AndroidPort\verification'
+$workspace = (Resolve-Path "$PSScriptRoot\..").Path
+$sourceRoot = Join-Path $workspace 'recovered\JnG2'
+if ($PortSource) { $sourceRoot = Join-Path $workspace 'src\Game' }
+$outputRoot = Join-Path $workspace 'verification'
 New-Item -ItemType Directory -Force -Path $outputRoot | Out-Null
 $trees = [Collections.Generic.List[Microsoft.CodeAnalysis.SyntaxTree]]::new()
 foreach ($file in (Get-ChildItem -LiteralPath $sourceRoot -Recurse -Filter '*.cs')) {
@@ -15,7 +16,7 @@ foreach ($file in (Get-ChildItem -LiteralPath $sourceRoot -Recurse -Filter '*.cs
         $file.FullName, [Text.Encoding]::UTF8, [Threading.CancellationToken]::None))
 }
 if ($PortSource) {
-    foreach ($file in (Get-ChildItem -LiteralPath "$GameDirectory\AndroidPort\src\Mobile","$GameDirectory\AndroidPort\src\Android" -Filter '*.cs')) {
+    foreach ($file in (Get-ChildItem -LiteralPath "$workspace\src\Mobile","$workspace\src\Android" -Filter '*.cs')) {
         $trees.Add([Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree]::ParseText(
             [IO.File]::ReadAllText($file.FullName), [Microsoft.CodeAnalysis.CSharp.CSharpParseOptions]::Default,
             $file.FullName, [Text.Encoding]::UTF8, [Threading.CancellationToken]::None))

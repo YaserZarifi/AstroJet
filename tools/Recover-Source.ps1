@@ -1,7 +1,7 @@
 param([string]$GameDirectory = (Resolve-Path "$PSScriptRoot\..\..").Path)
 $ErrorActionPreference = 'Stop'
 Add-Type -Path "$PSScriptRoot\decompiler\lib\netstandard2.0\ICSharpCode.Decompiler.dll"
-$outputRoot = Join-Path $GameDirectory 'AndroidPort\recovered'
+$outputRoot = Join-Path $PSScriptRoot '..\recovered'
 $settings = [ICSharpCode.Decompiler.DecompilerSettings]::new()
 $settings.ThrowOnAssemblyResolveErrors = $false
 foreach ($assemblyName in @('JnG2.exe', 'FarseerPhysics MonoGame.dll', 'spine-csharp.dll')) {

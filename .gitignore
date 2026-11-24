@@ -12,3 +12,6 @@ research/*
 !research/decoded-content-result.txt
 verification/*.txt
 *.disabled
+*.log
+*.apk
+*.aab

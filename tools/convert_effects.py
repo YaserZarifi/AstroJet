@@ -6,6 +6,7 @@ under research/. GPU compilation and visual equivalence still need device tests.
 from pathlib import Path
 import struct
 import json
+import argparse
 
 
 class Reader:
@@ -156,8 +157,11 @@ def convert(data):
 
 
 if __name__ == '__main__':
-    root = Path(__file__).resolve().parents[2]
-    destination = root / 'AndroidPort/packed/shader'
+    workspace = Path(__file__).resolve().parents[1]
+    arguments = argparse.ArgumentParser(description=__doc__)
+    arguments.add_argument('--game-dir', type=Path, default=workspace.parent)
+    root = arguments.parse_args().game_dir.resolve()
+    destination = workspace / 'packed/shader'
     destination.mkdir(parents=True, exist_ok=True)
     report = []
     for source in (root / 'shader').glob('*.mgfxo'):

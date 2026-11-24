@@ -3,9 +3,13 @@ from pathlib import Path
 from zipfile import ZipFile, ZIP_DEFLATED
 import json
 import shutil
+import argparse
 
-root = Path(__file__).resolve().parents[2]
-output = root / "AndroidPort" / "packed"
+workspace = Path(__file__).resolve().parents[1]
+arguments = argparse.ArgumentParser(description=__doc__)
+arguments.add_argument('--game-dir', type=Path, default=workspace.parent)
+root = arguments.parse_args().game_dir.resolve()
+output = workspace / "packed"
 output.mkdir(exist_ok=True)
 target = output / "content.zip"
 with ZipFile(root / "content.zip") as source, ZipFile(target, "w", ZIP_DEFLATED, compresslevel=6) as packed:
