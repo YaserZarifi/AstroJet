@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-android36.0</TargetFramework>
+    <SupportedOSPlatformVersion>26.0</SupportedOSPlatformVersion>
+    <OutputType>Library</OutputType>
+    <AssemblyName>JnG2</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.Android" Version="3.8.6.1" />
+    <Reference Include="FarseerPhysics MonoGame"><HintPath>..\..\lib\FarseerPhysics MonoGame.dll</HintPath></Reference>
+    <Reference Include="spine-csharp"><HintPath>..\..\lib\spine-csharp.dll</HintPath></Reference>
+    <Reference Include="Steamworks.NET"><HintPath>..\..\lib\Steamworks.NET.dll</HintPath></Reference>
+    <Compile Remove="Rake2D\Program.cs;Rake2D.Sound\SoundDataBass.cs;Rake2D.Sound\Sound2DBass.cs" />
+    <Compile Include="..\Mobile\*.cs" Link="Mobile\%(Filename)%(Extension)" />
+    <EmbeddedResource Include="Rake2D.Icon.bmp;Rake2D.Icon.ico" />
+  </ItemGroup>
+</Project>

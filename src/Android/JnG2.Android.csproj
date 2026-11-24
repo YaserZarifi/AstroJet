@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-android36.0</TargetFramework>
+    <SupportedOSPlatformVersion>26.0</SupportedOSPlatformVersion>
+    <OutputType>Exe</OutputType>
+    <ApplicationId>local.yaser.jng2port</ApplicationId>
+    <ApplicationTitle>Jets'n'Guns 2 Mobile Test</ApplicationTitle>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>0.1</ApplicationDisplayVersion>
+    <RuntimeIdentifier>android-arm64</RuntimeIdentifier>
+    <AndroidPackageFormats>apk</AndroidPackageFormats>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <PublishTrimmed>false</PublishTrimmed>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Game\JnG2.csproj" />
+    <AndroidAsset Include="..\..\packed\content.zip" Link="content.zip" />
+    <AndroidAsset Include="..\..\packed\content.txt" Link="content.txt" />
+    <AndroidAsset Include="..\..\packed\music\*" Link="music\%(Filename)%(Extension)" />
+    <AndroidAsset Include="..\..\packed\shader\*" Link="shader\%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>
