@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>JnG2</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net46</TargetFramework>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>14.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Rake2D.Icon.bmp" />
+    <None Remove="Rake2D.Icon.ico" />
+    <EmbeddedResource Include="Rake2D.Icon.bmp" LogicalName="Rake2D.Icon.bmp" />
+    <EmbeddedResource Include="Rake2D.Icon.ico" LogicalName="Rake2D.Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="FarseerPhysics MonoGame">
+      <HintPath>..\..\..\FarseerPhysics MonoGame.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>..\..\..\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Core" />
+    <Reference Include="spine-csharp">
+      <HintPath>..\..\..\spine-csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Steamworks.NET">
+      <HintPath>..\..\..\Steamworks.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="ManagedBass">
+      <HintPath>..\..\..\ManagedBass.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

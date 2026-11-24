@@ -1,0 +1,1 @@
+Exported 398 text/level files; decoded 398 encoded files and 345535 nonempty lines. Verified 398 file samples by encryption round-trip.
