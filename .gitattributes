@@ -1,0 +1,10 @@
+* text=auto
+*.cs text eol=lf
+*.csproj text eol=lf
+*.ps1 text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.dll binary
+*.ico binary
+*.bmp binary
+*.png binary

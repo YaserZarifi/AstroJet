@@ -1,0 +1,14 @@
+tools/*
+!tools/*.ps1
+!tools/*.py
+!tools/*.cs
+tools/dotnet-install.ps1
+**/bin/
+**/obj/
+research/decoded-content/
+packed/
+research/*
+!research/content-inventory.json
+!research/decoded-content-result.txt
+verification/*.txt
+*.disabled
