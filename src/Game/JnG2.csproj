@@ -11,9 +11,9 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.Android" Version="3.8.6.1" />
-    <Reference Include="FarseerPhysics MonoGame"><HintPath>..\..\lib\FarseerPhysics MonoGame.dll</HintPath></Reference>
+    <ProjectReference Include="..\Physics\FarseerPhysics-MonoGame.csproj" />
     <Reference Include="spine-csharp"><HintPath>..\..\lib\spine-csharp.dll</HintPath></Reference>
-    <Reference Include="Steamworks.NET"><HintPath>..\..\lib\Steamworks.NET.dll</HintPath></Reference>
+    <ProjectReference Include="..\Steamworks\Steamworks.NET.csproj" />
     <Compile Remove="Rake2D\Program.cs;Rake2D.Sound\SoundDataBass.cs;Rake2D.Sound\Sound2DBass.cs" />
     <Compile Include="..\Mobile\*.cs" Link="Mobile\%(Filename)%(Extension)" />
     <EmbeddedResource Include="Rake2D.Icon.bmp;Rake2D.Icon.ico" />
