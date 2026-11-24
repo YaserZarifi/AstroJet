@@ -5,6 +5,8 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 
+[assembly: SupportedOSPlatform("android26.0")]
+
 [assembly: AssemblyTitle("Jets'n'Guns 2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
